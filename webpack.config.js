@@ -1,5 +1,6 @@
-var path    = require('path');
-var webpack = require('webpack');
+var path              = require('path');
+var webpack           = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry:  [
@@ -22,14 +23,29 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['react', 'es2015']
+          plugins: ['transform-decorators-legacy'],
+          presets: ['react', 'es2015', 'stage-0']
         }
+      },
+      {
+        test: /\.scss$/,
+        loaders: [
+          "style",
+          "css",
+          "autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true"
+        ]
       }
     ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": {
+        BROWSER: JSON.stringify(true),
+        NODE_ENV: JSON.stringify( process.env.NODE_ENV || 'development' )
+      }
+    })
   ],
   devtool: 'inline-source-map',
   devServer: {
