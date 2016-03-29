@@ -8,6 +8,11 @@ npm install
 npm run dev
 ```
 
+## Navigate to:
+```
+http://localhost:8080
+```
+
 ### To run tests:
 ```
 npm run test
