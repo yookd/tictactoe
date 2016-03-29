@@ -1,8 +1,8 @@
 'use strict';
 
-require('babel-core/register')({
-  presets: ['react', 'es2015']
-});
+require('babel-core/register');
+
+delete process.env.BROWSER;
 
 var server = require('./server').default;
 
