@@ -1,0 +1,41 @@
+@import 'modules/base';
+
+@import 'board';
+
+/**
+ * Default CSS
+ */
+html, body {
+  height: 100%;
+  background-color: $background-color;
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+.input-row {
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+input {
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+#app-view, #main {
+  height: 100%;
+}
+
+#main {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
