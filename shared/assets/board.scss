@@ -94,7 +94,10 @@
       min-height: 50px;
       min-width: 50px;
       display: inline-block;
-      border: 1px solid $cell-border-color;
+      border-color: $cell-border-color;
+      border-width: 1px;
+      border-right-style: solid;
+      border-bottom-style: solid;
       padding-bottom: 25%;
 
       &:hover {
@@ -102,13 +105,15 @@
       }
 
       &.left, &.right {
-        border-left: 0px;
-        border-right: 0px;
+      }
+
+      &.right {
+        border-left-style: none;
+        border-right-style: none;
       }
 
       &.top {
-        border-top: 0px;
-        border-bottom: 0px;
+        border-bottom-style: solid;
       }
 
       &.bottom {
